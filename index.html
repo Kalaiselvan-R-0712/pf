@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stackly | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  animation: fadeInBody 0.8s ease-in-out;
+}
+
+@keyframes fadeInBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BRAND COLOR VARIABLE ===== */
+:root {
+  --brand-color: #3fb4ba;
+  --brand-hover: #3fb4ba;
+}
+
+body {
+  background: #f3f3f3;
+  color: #000;
+}
+
+/* ================= HEADER ================= */
+
+/* ================= FIXED HEADER ================= */
+
+header {
+  position: fixed;     /* Fully fixed */
+  top: 0;
+  left: 0;
+  width: 100%;         /* Full width */
+  z-index: 9999;       /* Always above everything */
+
+  padding: 20px 80px;
+  background: #f3f3f3;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Prevent content hiding under header */
+body {
+  padding-top: 110px;  /* Adjust if header height changes */
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Logo */
+.logo img {
+  height: 55px;
+  width: auto;
+  display: block;
+}
+
+.logo img {
+  transition: 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(63,180,186,0.6));
+}
+
+.resume-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-btn::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  left: -60%;
+  background: rgba(255,255,255,0.4);
+  transform: skewX(-20deg);
+  transition: 0.6s;
+}
+
+.resume-btn:hover::before {
+  left: 120%;
+}
+
+.hero-right img {
+  animation: floatImage 4s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+.hero-left h1 {
+  animation: slideUp 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.about-graphic {
+  animation: rotateSlow 20s linear infinite;
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.stat {
+  transition: 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+  color: var(--brand-color);
+}
+
+.language-tags span {
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.language-tags span:hover {
+  background: var(--brand-color);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.dot.active {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(63,180,186,0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(63,180,186,0); }
+  100% { box-shadow: 0 0 0 0 rgba(63,180,186,0); }
+}
+
+.exp-detail {
+  transition: 0.3s ease;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.exp-detail:hover {
+  background: #fff;
+  transform: translateX(8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.skill-card i {
+  transition: 0.3s ease;
+}
+
+.skill-card:hover i {
+  transform: scale(1.2) rotate(8deg);
+}
+
+.skill-card:hover {
+  box-shadow: 0 10px 30px rgba(63,180,186,0.2);
+}
+
+.work-card img {
+  transition: 0.4s ease;
+}
+
+.work-card:hover img {
+  transform: scale(1.08);
+}
+
+.work-card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom: 1px solid var(--brand-color);
+  box-shadow: 0 5px 15px rgba(63,180,186,0.2);
+}
+
+.send-btn {
+  position: relative;
+}
+
+.send-btn:hover {
+  box-shadow: 0 10px 25px rgba(63,180,186,0.3);
+}
+
+.footer-brand img {
+  transition: 0.3s ease;
+}
+
+.footer-brand img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px rgba(63,180,186,0.6));
+}
+
+.footer-links a {
+  position: relative;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background: var(--brand-color);
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+section {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Resume Button */
+.resume-btn {
+  padding: 18px 40px;
+  border: 2px solid var(--brand-color);
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.resume-btn:hover {
+  background: var(--brand-color);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  display: flex;
+  min-height: 90vh;
+}
+
+.hero-left {
+  width: 50%;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-left h1 {
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.wave {
+  font-size: 70px;
+}
+
+.hero-left p {
+  margin-top: 40px;
+  font-size: 20px;
+  color: #666;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Right Side Image Background Updated */
+.hero-right {
+  width: 50%;
+  background: var(--brand-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-right img {
+  width: 80%;
+  max-width: 550px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 992px) {
+
+  header {
+    padding: 25px 30px;
+  }
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 100%;
+  }
+
+  .hero-left {
+    padding: 60px 30px;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 48px;
+  }
+
+  .hero-right {
+    padding: 40px 0;
+  }
+}
+
+/* ================= ABOUT SECTION ================= */
+
+.about {
+  padding: 120px 80px;
+  background: #fff;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-title h2 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.about-line {
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+  margin: 20px 0 60px 0;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* Graphic Left */
+
+.about-graphic {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.circle-top {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(180deg, var(--brand-color), #ffffff);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.circle-bottom {
+  width: 250px;
+  height: 250px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* Right Content */
+
+.about-text {
+  flex: 1;
+}
+
+.about-description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 50px;
+}
+
+/* Stats */
+
+.about-stats {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+.stat h3 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.stat span {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Divider */
+
+.about-divider {
+  height: 1px;
+  background: #ddd;
+  margin: 30px 0;
+}
+
+/* Language */
+
+.about-language {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.language-tags {
+  display: flex;
+  gap: 15px;
+}
+
+.language-tags span {
+  padding: 8px 20px;
+  background: #f2f2f2;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* Responsive */
+
+@media(max-width: 992px) {
+
+  .about {
+    padding: 80px 30px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-graphic {
+    margin-bottom: 40px;
+  }
+
+  .about-stats {
+    justify-content: center;
+  }
+
+  .about-language {
+    flex-direction: column;
+  }
+}
+
+/* ================= CONTACT STRIP ================= */
+
+.contact-strip {
+  background: #f8f8f8;
+  padding: 18px 80px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-left {
+  display: flex;
+  gap: 40px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.contact-item span {
+  color: var(--brand-color);
+  font-size: 16px;
+}
+
+.contact-right {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--brand-color);
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+
+@media(max-width: 992px) {
+
+  .contact-strip {
+    padding: 15px 30px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-left {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+/* ================= EXPERIENCE SECTION ================= */
+
+.experience {
+  padding: 120px 80px;
+  background: #f9f9f9;
+}
+
+.experience-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.experience-title {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.experience-title h2 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.section-number {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  color: var(--brand-color);
+  font-weight: 600;
+}
+
+.experience-line {
+  height: 1px;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+.experience-content {
+  display: flex;
+  gap: 40px;
+}
+
+/* Left */
+
+.experience-left {
+  width: 25%;
+}
+
+.exp-year {
+  margin-bottom: 70px;
+}
+
+.exp-year h3 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.exp-year p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Vertical Line */
+
+.experience-line-vertical {
+  width: 2px;
+  background: #ddd;
+  position: relative;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #000;
+  position: relative;
+  left: -6px;
+  margin: 65px 0;
+}
+
+.dot.active {
+  border-color: var(--brand-color);
+  background: var(--brand-color);
+}
+
+/* Right */
+
+.experience-right {
+  flex: 1;
+}
+
+.exp-detail {
+  margin-bottom: 60px;
+}
+
+.exp-detail h4 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.exp-detail span {
+  display: block;
+  font-size: 14px;
+  color: #888;
+  margin: 5px 0 15px;
+}
+
+.exp-detail p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* Responsive */
+
+@media(max-width: 992px) {
+
+  .experience {
+    padding: 80px 30px;
+  }
+
+  .experience-content {
+    flex-direction: column;
+  }
+
+  .experience-left {
+    width: 100%;
+  }
+
+  .experience-line-vertical {
+    display: none;
+  }
+}
+
+/* ================= EDUCATION & SKILLS ================= */
+
+.education-skills {
+  padding: 120px 80px;
+  background: #fff;
+}
+
+.edu-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.edu-title {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.edu-title h2 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.edu-line {
+  height: 1px;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+.edu-content {
+  display: flex;
+  gap: 80px;
+}
+
+/* Education */
+
+.education-left {
+  width: 40%;
+}
+
+.edu-item {
+  margin-bottom: 40px;
+}
+
+.edu-item h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.edu-item p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* Skills */
+
+.skills-right {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.skill-card {
+  background: #f8f8f8;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.skill-card i {
+  font-size: 40px;
+  color: var(--brand-color);
+  margin-bottom: 15px;
+}
+
+.skill-card h5 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.skill-dots {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.skill-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-color);
+}
+
+.skill-dots span.empty {
+  background: #ddd;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  background: #f0fafa;
+}
+
+/* Responsive */
+
+@media(max-width: 992px) {
+
+  .education-skills {
+    padding: 80px 30px;
+  }
+
+  .edu-content {
+    flex-direction: column;
+  }
+
+  .education-left {
+    width: 100%;
+  }
+
+  .skills-right {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.about-title {
+  position: relative;
+}
+
+.about-title h2 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+/* ================= LATEST WORKS ================= */
+
+.latest-works {
+  padding: 120px 80px;
+  background: #f9f9f9;
+}
+
+.works-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.works-title {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.works-title h2 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.works-line {
+  height: 1px;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.work-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.work-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.work-info {
+  padding: 20px;
+  position: relative;
+}
+
+.work-info h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.work-info p {
+  font-size: 13px;
+  color: #777;
+}
+
+.arrow {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-8px);
+}
+
+.work-card:hover .arrow {
+  color: var(--brand-color);
+  transform: translateX(5px);
+}
+
+/* Responsive */
+
+@media(max-width: 992px) {
+
+  .latest-works {
+    padding: 80px 30px;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.work-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ================= CONTACT ME ================= */
+
+.contact-me {
+  padding: 120px 80px;
+  background: #fff;
+}
+
+.contact-me-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contact-me-title {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.contact-me-title h2 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.contact-me-line {
+  height: 1px;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+.contact-me-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* Form */
+
+.contact-form {
+  flex: 1;
+}
+
+.form-row {
+  display: flex;
+  gap: 40px;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #777;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  font-size: 14px;
+  outline: none;
+  background: transparent;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom: 1px solid var(--brand-color);
+}
+
+.send-btn {
+  padding: 12px 35px;
+  border-radius: 30px;
+  border: 1px solid var(--brand-color);
+  background: transparent;
+  color: var(--brand-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.send-btn:hover {
+  background: var(--brand-color);
+  color: #fff;
+}
+
+/* Right Side */
+
+.contact-info {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-links a {
+  display: block;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: #666;
+  transition: 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: var(--brand-color);
+}
+
+.contact-direct a {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  width: fit-content;
+}
+
+.contact-direct a:hover {
+  color: var(--brand-color);
+  border-color: var(--brand-color);
+}
+
+/* Responsive */
+
+@media(max-width: 992px) {
+
+  .contact-me {
+    padding: 80px 30px;
+  }
+
+  .contact-me-content {
+    flex-direction: column;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .contact-info {
+    width: 100%;
+    margin-top: 40px;
+  }
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  background: #add6d8;
+  color: #ccc;
+  padding: 80px 80px 30px 80px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.footer-brand img {
+  height: 45px;
+  margin-bottom: 20px;
+}
+
+.footer-brand p {
+  max-width: 300px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #aaa;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footer-links a {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--brand-color);
+}
+
+.footer-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icons a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-icons a:hover {
+  background: var(--brand-color);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+}
+
+/* Responsive */
+
+@media(max-width: 992px) {
+
+  .footer {
+    padding: 60px 30px 20px 30px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  background: #add6d8; /* keep your background */
+  color: #1a1a1a; /* darker main text */
+  padding: 80px 80px 30px 80px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+/* Brand text */
+.footer-brand p {
+  max-width: 300px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #2a2a2a; /* darker for visibility */
+}
+
+/* Headings */
+.footer-links h4,
+.footer-social h4 {
+  color: #000; /* strong heading color */
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Links */
+.footer-links a {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #333; /* darker link */
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--brand-color);
+}
+
+/* Social icons */
+.footer-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icons a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #000; /* keep icons bold */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-icons a:hover {
+  background: var(--brand-color);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(0,0,0,0.2); /* lighter border */
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+/* ========================================= */
+/* ========== LARGE DESKTOP (1400px+) ====== */
+/* ========================================= */
+@media (min-width: 1400px) {
+
+  .hero-left h1 {
+    font-size: 90px;
+  }
+
+  .about-container,
+  .experience-container,
+  .edu-container,
+  .works-container,
+  .contact-me-container,
+  .footer-container {
+    max-width: 1320px;
+  }
+
+}
+
+
+/* ========================================= */
+/* ========== LAPTOPS (1200px–1399px) ====== */
+/* ========================================= */
+@media (max-width: 1399px) {
+
+  header {
+    padding: 20px 60px;
+  }
+
+  .hero-left h1 {
+    font-size: 70px;
+  }
+
+  section {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+
+}
+
+
+/* ========================================= */
+/* ========== TABLETS (768px–1199px) ======= */
+/* ========================================= */
+@media (max-width: 1199px) {
+
+  header {
+    padding: 20px 40px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 100%;
+  }
+
+  .hero-left {
+    padding: 60px 40px;
+  }
+
+  .hero-left h1 {
+    font-size: 52px;
+  }
+
+  .about-content,
+  .experience-content,
+  .edu-content,
+  .contact-me-content {
+    flex-direction: column;
+  }
+
+  .experience-line-vertical {
+    display: none;
+  }
+
+  .skills-right {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+
+}
+
+/* ========================================= */
+/* ========== CLEAN MOBILE FIX ============= */
+/* ========================================= */
+
+@media (max-width: 767px) {
+
+  /* ---- Header Fix ---- */
+  body {
+    padding-top: 90px;
+  }
+
+  header {
+    padding: 15px 20px;
+  }
+
+  .header-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+
+  .resume-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+    border-width: 1.5px;
+  }
+
+  /* ---- Hero Fix ---- */
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 100%;
+  }
+
+  .hero-left {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
+  .wave {
+    font-size: 28px;
+  }
+
+  .hero-left p {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .hero-right {
+    padding: 30px 0;
+  }
+
+  .hero-right img {
+    width: 85%;
+  }
+
+  /* ---- Section Padding ---- */
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .about,
+  .experience,
+  .education-skills,
+  .latest-works,
+  .contact-me,
+  .footer {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  /* ---- Titles Resize ---- */
+  .about-title h2,
+  .experience-title h2,
+  .edu-title h2,
+  .contact-me-title h2 {
+    font-size: 28px;
+  }
+
+  .section-number {
+    position: static;
+    display: block;
+    margin-top: 10px;
+  }
+
+  /* ---- Layout Stack Fix ---- */
+  .about-content,
+  .experience-content,
+  .edu-content,
+  .contact-me-content,
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .experience-line-vertical {
+    display: none;
+  }
+
+  /* ---- Language Fix ---- */
+  .language-tags {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ---- Stats Fix ---- */
+  .about-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* ---- Skills Grid ---- */
+  .skills-right {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    padding: 20px;
+  }
+
+  /* ---- Works Grid ---- */
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ---- Form Fix ---- */
+  .form-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-info {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  /* ---- Footer Icons ---- */
+  .footer-icons {
+    justify-content: center;
+  }
+
+}
+
+/* ===== GLOBAL MOBILE OVERFLOW FIX ===== */
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 767px) {
+
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .section-number {
+    position: static;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .experience-left,
+  .education-left,
+  .contact-info {
+    width: 100% !important;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-wrapper">
+    
+<div class="logo">
+  <a href="index.html">
+    <img src="assets/images/logo/stackly_logo.webp" alt="Stackly Logo">
+  </a>
+</div>
+
+    <a href="404.html" class="resume-btn">Download PDF Resume</a>
+
+  </div>
+</header>
+
+<section class="hero">
+
+  <div class="hero-left">
+    <h1>
+      I'm Lakshmi Ibrahim <span class="wave">👋</span><br>
+      UI/UX Designer in STACKLY
+    </h1>
+
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      variations of passages of Lorem Ipsum available, but the majority have
+      suffered alteration
+    </p>
+  </div>
+
+  <div class="hero-right">
+    <img src="assets/images/site_images/testy2.webp" alt="Profile">
+  </div>
+
+</section>
+
+<!-- ================= CONTACT STRIP ================= -->
+
+<section class="contact-strip reveal">
+  <div class="contact-container">
+
+    <div class="contact-left">
+      <div class="contact-item">
+        <span>📧</span>
+        <p>hello@imlakshmiibrahim.com</p>
+      </div>
+
+      <div class="contact-item">
+        <span>📞</span>
+        <p>+91 5588 2500</p>
+      </div>
+
+      <div class="contact-item">
+        <span>🌐</span>
+        <p>www.mywebsite.com</p>
+      </div>
+    </div>
+
+<div class="contact-right">
+
+  <a href="404.html" class="social-icon">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+
+  <a href="404.html" class="social-icon">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+
+  <a href="404.html" class="social-icon">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a href="404.html" class="social-icon">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+</div>
+
+  </div>
+</section>
+
+<!-- ================= ABOUT SECTION ================= -->
+
+<section class="about reveal">
+
+  <div class="about-container">
+
+    <!-- Section Title -->
+<div class="about-title">
+  <h2>About Me</h2>
+  <span class="section-number">(01)</span>
+  <div class="about-line"></div>
+</div>
+
+    <div class="about-content">
+
+      <!-- Left Graphic -->
+      <div class="about-graphic">
+        <div class="circle-top"></div>
+        <div class="circle-bottom"></div>
+      </div>
+
+      <!-- Right Content -->
+      <div class="about-text">
+
+        <p class="about-description">
+          There are many variations of passages of Lorem Ipsum available,
+          but the majority have suffered alteration in some form, by injected humour,
+          or randomised words which don't look even slightly believable.
+          If you are going to use a passage of Lorem Ipsum,
+          you need to be sure there isn't anything embarrassing hidden in the middle of text.
+        </p>
+
+        <!-- Stats -->
+        <div class="about-stats">
+
+          <div class="stat">
+            <h3>06</h3>
+            <span>Years of experience</span>
+          </div>
+
+          <div class="stat">
+            <h3>165+</h3>
+            <span>Happy Clients</span>
+          </div>
+
+          <div class="stat">
+            <h3>1800+</h3>
+            <span>Project Completed</span>
+          </div>
+
+        </div>
+
+        <div class="about-divider"></div>
+
+        <!-- Language -->
+        <div class="about-language">
+          <strong>Language</strong>
+          <div class="language-tags">
+            <span>English</span>
+            <span>Hindi</span>
+            <span>Malayalam</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= EXPERIENCE SECTION ================= -->
+
+<section class="experience reveal">
+
+  <div class="experience-container">
+
+    <!-- Title -->
+    <div class="experience-title">
+      <h2>Experience</h2>
+      <span class="section-number">(02)</span>
+      <div class="experience-line"></div>
+    </div>
+
+    <div class="experience-content">
+
+      <!-- Timeline Left -->
+      <div class="experience-left">
+
+        <div class="exp-year">
+          <h3>2018</h3>
+          <p>Junior UX Designer</p>
+        </div>
+
+        <div class="exp-year">
+          <h3>2019</h3>
+          <p>Senior UX Designer</p>
+        </div>
+
+        <div class="exp-year">
+          <h3>2020-2022</h3>
+          <p>Team Lead Designer</p>
+        </div>
+
+        <div class="exp-year">
+          <h3>2023+</h3>
+          <p>Team Lead Designer</p>
+        </div>
+
+      </div>
+
+      <!-- Timeline Center Line -->
+      <div class="experience-line-vertical">
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+      <!-- Timeline Right -->
+      <div class="experience-right">
+
+        <div class="exp-detail">
+          <h4>www.startup.com</h4>
+          <span>Fulltime</span>
+          <p>
+            Suffered alteration in some form by injected humour,
+            or randomised words which don't look even slightly believable.
+            If you are going to use a passage of Lorem Ipsum
+          </p>
+        </div>
+
+        <div class="exp-detail">
+          <h4>www.googly.com</h4>
+          <span>Remote</span>
+          <p>
+            Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software
+            like Aldus PageMaker including versions of Lorem
+          </p>
+        </div>
+
+        <div class="exp-detail">
+          <h4>www.company.com</h4>
+          <span>Fulltime</span>
+          <p>
+            Handful of model sentence structures, to generate
+            Lorem Ipsum which looks reasonable. The generated
+          </p>
+        </div>
+
+        <div class="exp-detail">
+          <h4>www.latest.com</h4>
+          <span>Fulltime</span>
+          <p>
+            Release of Letraset sheets containing Lorem Ipsum
+            passages and more recently with desktop publishing software
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= EDUCATION & SKILLS SECTION ================= -->
+
+<section class="education-skills reveal">
+
+  <div class="edu-container">
+
+    <!-- Title -->
+    <div class="edu-title">
+      <h2>Education & Skills</h2>
+      <span class="section-number">(03)</span>
+      <div class="edu-line"></div>
+    </div>
+
+    <div class="edu-content">
+
+      <!-- Left Education -->
+      <div class="education-left">
+
+        <div class="edu-item">
+          <h4>Lipsum College - 2010</h4>
+          <p>
+            There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration in some form
+            Koramangala college.
+          </p>
+        </div>
+
+        <div class="edu-item">
+          <h4>Master Diploma - 2012</h4>
+          <p>
+            Combined with a handful of model sentence structures,
+            to generate Lorem Ipsum which looks reasonable.
+          </p>
+        </div>
+
+        <div class="edu-item">
+          <h4>Master in User Experience - 2014</h4>
+          <p>
+            There are many variations of passages of Lorem Ipsum available,
+            but the majority have suffered alteration.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Right Skills -->
+      <div class="skills-right">
+
+        <div class="skill-card">
+          <i class="fa-brands fa-figma"></i>
+          <h5>Figma</h5>
+          <div class="skill-dots">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-image"></i>
+          <h5>Photoshop</h5>
+          <div class="skill-dots">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-gem"></i>
+          <h5>Sketch</h5>
+          <div class="skill-dots">
+            <span></span><span></span><span></span><span></span><span class="empty"></span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-pen-ruler"></i>
+          <h5>Adobe XD</h5>
+          <div class="skill-dots">
+            <span></span><span></span><span></span><span></span><span class="empty"></span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-solid fa-layer-group"></i>
+          <h5>Framer</h5>
+          <div class="skill-dots">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fa-brands fa-invision"></i>
+          <h5>Invision</h5>
+          <div class="skill-dots">
+            <span></span><span></span><span></span><span class="empty"></span><span class="empty"></span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= LATEST WORKS SECTION ================= -->
+
+<section class="latest-works reveal">
+
+<div class="works-grid">
+
+  <a href="404.html" class="work-card">
+    <img src="assets/images/site_images/w1.webp" alt="Work 1">
+    <div class="work-info">
+      <h4>Mug Sticker Designing</h4>
+      <p>Client: John Marshal</p>
+      <span class="arrow">→</span>
+    </div>
+  </a>
+
+  <a href="404.html" class="work-card">
+    <img src="assets/images/site_images/w2.webp" alt="Work 2">
+    <div class="work-info">
+      <h4>Mobile App Design</h4>
+      <p>Client: John Marshal</p>
+      <span class="arrow">→</span>
+    </div>
+  </a>
+
+  <a href="404.html" class="work-card">
+    <img src="assets/images/site_images/w3.webp" alt="Work 3">
+    <div class="work-info">
+      <h4>Fashion Website Template</h4>
+      <p>Client: John Marshal</p>
+      <span class="arrow">→</span>
+    </div>
+  </a>
+
+  <a href="404.html" class="work-card">
+    <img src="assets/images/site_images/w4.webp" alt="Work 4">
+    <div class="work-info">
+      <h4>Book Cover Design</h4>
+      <p>Client: John Marshal</p>
+      <span class="arrow">→</span>
+    </div>
+  </a>
+
+  <a href="404.html" class="work-card">
+    <img src="assets/images/site_images/w5.webp" alt="Work 5">
+    <div class="work-info">
+      <h4>Motor Website Design</h4>
+      <p>Client: John Marshal</p>
+      <span class="arrow">→</span>
+    </div>
+  </a>
+
+  <a href="404.html" class="work-card">
+    <img src="assets/images/site_images/w6.webp" alt="Work 6">
+    <div class="work-info">
+      <h4>Emoji Designing</h4>
+      <p>Client: John Marshal</p>
+      <span class="arrow">→</span>
+    </div>
+  </a>
+
+</div>
+
+  </div>
+
+</section>
+
+<!-- ================= CONTACT ME SECTION ================= -->
+
+<section class="contact-me reveal">
+
+  <div class="contact-me-container">
+
+    <!-- Title -->
+    <div class="contact-me-title">
+      <h2>Contact Me</h2>
+      <span class="section-number">(05)</span>
+      <div class="contact-me-line"></div>
+    </div>
+
+    <div class="contact-me-content">
+
+      <!-- Left Form -->
+      <div class="contact-form">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name *</label>
+            <input type="text">
+          </div>
+
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="text">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email">
+        </div>
+
+        <div class="form-group">
+          <label>Message *</label>
+          <textarea rows="4"></textarea>
+        </div>
+
+<button class="send-btn" onclick="window.location.href='404.html'">
+  Send Now
+</button>
+
+      </div>
+
+      <!-- Right Info -->
+      <div class="contact-info">
+
+        <div class="contact-direct">
+          <a href="404.html">hello@imlakshmiibrahim.com</a>
+          <a href="tel:+9155882500">+91 5588 2500</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- Top Footer -->
+    <div class="footer-top">
+
+<div class="footer-brand">
+  <a href="index.html">
+    <img src="assets/images/logo/stackly_logo.webp" alt="Stackly Logo">
+  </a>
+        <p>
+          Designing thoughtful digital experiences with clarity,
+          creativity and purpose.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="404.html">About</a>
+        <a href="404.html">Works</a>
+        <a href="404.html">Contact</a>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Me</h4>
+        <div class="footer-icons">
+          <a href="404.html"><i class="fa-solid fa-envelope"></i></a>          
+          <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+      <p>© 2026 Stackly. All Rights Reserved.</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    const revealPoint = 100;
+
+    if (elementTop < windowHeight - revealPoint) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+</script>
+
+<script>
+console.log("Stackly Brand Theme Applied Successfully");
+</script>
+
+</body>
+</html>
