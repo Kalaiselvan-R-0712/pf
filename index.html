@@ -1557,21 +1557,118 @@ img {
 
 }
 
+/* Update Header Wrapper */
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes logo to left, button to right */
+  width: 100%;
+}
+
+/* Nav Menu Styling */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--brand-color);
+}
+
+.menu-toggle {
+  display: none; /* Hidden on desktop */
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+}
+
+.mobile-resume { display: none; } /* Hide mobile version on desktop */
+
+/* ================= MOBILE HEADER LOGIC ================= */
+
+@media (max-width: 992px) {
+  header {
+    padding: 15px 30px;
+  }
+
+  .menu-toggle {
+    display: block; /* Show hamburger */
+    z-index: 10001;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: -100vh; /* Changed from -100% to -100vh for better control */
+    left: 0;
+    width: 100%;
+    height: 100vh; /* This makes it cover the full screen height */
+    background: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers items vertically */
+    align-items: center; /* Centers items horizontally */
+    gap: 40px;
+    transition: 0.5s ease-in-out;
+    z-index: 10000;
+    padding: 0; /* Clear previous padding to allow true centering */
+  }
+
+  .nav-menu.active {
+    top: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .desktop-resume {
+    display: none; /* Hide the side button on mobile */
+  }
+
+  .mobile-resume {
+    display: inline-block; /* Show inside the dropdown */
+    margin-top: 10px;
+  }
+}
+
 </style>
 </head>
 <body>
 
 <header>
   <div class="header-wrapper">
-    
-<div class="logo">
-  <a href="index.html">
-    <img src="assets/images/logo/stackly_logo.webp" alt="Stackly Logo">
-  </a>
-</div>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logo/stackly_logo.webp" alt="Stackly Logo">
+      </a>
+    </div>
 
-    <a href="404.html" class="resume-btn">Download PDF Resume</a>
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fa-solid fa-bars"></i>
+    </div>
 
+    <nav class="nav-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="404.html">About</a></li>
+        <li><a href="404.html">Experience</a></li>
+        <li><a href="404.html">Works</a></li>
+        <li><a href="404.html">Contact</a></li>
+      </ul>
+      <a href="404.html" class="resume-btn mobile-resume">Download PDF Resume</a>
+    </nav>
+
+    <a href="404.html" class="resume-btn desktop-resume">Download PDF Resume</a>
   </div>
 </header>
 
@@ -2065,6 +2162,7 @@ img {
         <h4>Quick Links</h4>
         <a href="index.html">Home</a>
         <a href="404.html">About</a>
+        <a href="404.html">Experience</a>        
         <a href="404.html">Works</a>
         <a href="404.html">Contact</a>
       </div>
@@ -2111,6 +2209,31 @@ window.addEventListener("load", revealOnScroll);
 
 <script>
 console.log("Stackly Brand Theme Applied Successfully");
+</script>
+
+<script>
+  const menuToggle = document.getElementById('mobile-menu');
+  const navMenu = document.querySelector('.nav-menu');
+  const menuIcon = menuToggle.querySelector('i');
+
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    
+    // Toggle between Hamburger and "X" icon
+    if (navMenu.classList.contains('active')) {
+      menuIcon.classList.replace('fa-bars', 'fa-xmark');
+    } else {
+      menuIcon.classList.replace('fa-xmark', 'fa-bars');
+    }
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      menuIcon.classList.replace('fa-xmark', 'fa-bars');
+    });
+  });
 </script>
 
 </body>
